@@ -1,0 +1,380 @@
+:root {
+    --primary-color: #ff6b6b;
+    --primary-dark: #ff5252;
+    --secondary-color: #4ecdc4;
+    --dark-color: #2c3e50;
+    --light-color: #f7f9fc;
+    --gray-color: #e0e0e0;
+    --text-color: #333;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #0f0c29;
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Contenedor principal donde se cargan las páginas */
+#app-root {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para formularios de autenticación */
+.register-container,
+.login-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    max-width: 450px;
+    width: 100%;
+    animation: fadeIn 0.5s ease;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+h1 {
+    color: var(--dark-color);
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 16px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 15px 45px 15px 15px;
+    border: 2px solid var(--gray-color);
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--secondary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+}
+
+.input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #999;
+}
+
+.btn-register {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-register:hover {
+    background-color: var(--primary-dark);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* ===== ESTILOS PARA PANELES (Admin, Restaurantes, Detalle) ===== */
+/* Esta clase se usa en admin.html, restaurants.html, y restaurant-detail.html */
+.admin-container,
+.restaurants-container,
+.restaurant-detail-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 20px auto;
+    border: 1px solid #e8ecef;
+    animation: fadeIn 0.5s ease;
+}
+
+/* Header de los paneles */
+.admin-container .header,
+.restaurants-container .header,
+.restaurant-detail-container .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 2px solid #f0f3f5;
+    position: relative; /* Para el botón de "Volver" */
+}
+
+.admin-container .header h1,
+.restaurants-container .header h1,
+.restaurant-detail-container .header h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.admin-container .header .subtitle,
+.restaurants-container .header .subtitle,
+.restaurant-detail-container .header .subtitle {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* Formulario de crear restaurante */
+.create-restaurant-form {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    border: 1px solid #e3e6e9;
+}
+
+.create-restaurant-form h2 {
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.create-restaurant-form input,
+.create-restaurant-form textarea,
+.create-restaurant-form select {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+    font-family: inherit;
+}
+
+.create-restaurant-form input:focus,
+.create-restaurant-form textarea:focus,
+.create-restaurant-form select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    transform: translateY(-2px);
+}
+
+.create-restaurant-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.create-restaurant-form .btn-register {
+    background: linear-gradient(135deg, #27ae60, #2ecc71);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: auto;
+    min-width: 200px;
+}
+
+.create-restaurant-form .btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.3);
+}
+
+/* Lista de restaurantes (para admin y usuario) */
+.admin-restaurants-list,
+.restaurants-list {
+    margin-top: 40px;
+}
+
+.admin-restaurants-list h2,
+.restaurants-list h2 {
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Tarjetas de restaurantes (base) */
+.restaurant-card {
+    background: white;
+    border: 1px solid #e8ecef;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.restaurant-card.admin-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #3498db, #9b59b6);
+}
+
+.restaurant-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-color: #3498db;
+}
+
+.restaurant-info h3 {
+    color: #2c3e50;
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer; /* Para indicar que se puede hacer clic */
+}
+
+.restaurant-info h3:hover {
+    color: #3498db;
+}
+
+.restaurant-info p {
+    color: #5d6d7e;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.restaurant-details {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.restaurant-card .category,
+.restaurant-meta .category {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.restaurant-card .location,
+.restaurant-meta .location {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Botones de acción en admin */
+.admin-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.btn-edit, .btn-delete {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 100px;
+    justify-content: center;
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+}
+
+.btn-edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+}
+
+.btn-delete:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
